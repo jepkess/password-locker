@@ -3,7 +3,7 @@ class User:
     class that generates new instances of a user
     """
     User_list=[] # Empty user list
-    def __init__(self,username,password):
+    def __init__(self,username,password): # init method allows us to  create a new instances of a class
         User.username=username
         User.password=password
     def save_User(self):
@@ -23,6 +23,14 @@ class User:
         method that displays the user in the users list
         """ 
         return cls.user_list
+
+class Details:
+    """
+    class that generates an istance of an account details  and list of details
+    """
+            
+
+
 
 
         
