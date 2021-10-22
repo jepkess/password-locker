@@ -26,8 +26,14 @@ class User:
 
 class Details:
     """
-    class that generates an istance of an account details  and list of details
+    class that generates an instance of an account details  and list of details
     """
+    Details_list=[]
+    def __init__(self, account,username,password):
+        self.account = account
+        self.username = username
+        self.password = password
+
             
 
 
