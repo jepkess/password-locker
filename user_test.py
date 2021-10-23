@@ -19,7 +19,7 @@ class Testuser(unittest.TestCase):
         test case to check if the object is initialized properly.
         """ 
         self.assertEqual(self.new_user.username,"vinnie") 
-        self.assertEqual(self.new_user.password,"12345") 
+        self.assertEqual(self.new_user.password,"jepkess1234") 
 
     def test_save_user(self): 
         """
@@ -27,7 +27,34 @@ class Testuser(unittest.TestCase):
 
         """ 
         self.new_user.save_user() # saving the new contact
-        self.assertEqual(len(User.contact_list),1)
+        self.assertEqual(len(User.user_list),1)
+class TestDetails(unittest.TestCase):
+        """
+        class test that defines the testcases for the class details
+        """ 
+        def setUp(self):
+            """
+            a method that runs at the start of every test
+            """
+            self.new_details = Details("vincent","jep1234","1234jep")
+
+        def tearDown(self):
+            """
+            method that clean up after each test has run
+            """   
+            Details.details_list=[]
+        #checking for the expected results.
+        def test_details(self):
+            """
+            method that check if the new details instances has been instancialized correctly.
+            """
+            self.assertEqual(self.new_details.account,"vincent")
+            self.assertEqual(self.new_details.username,"jep1234")
+            self.assertEqual(self.new_details.password,"1234jep")
+
+
+    
+
 if __name__ == "__main__":
     unittest.main()        
 

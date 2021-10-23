@@ -38,7 +38,7 @@ class Details:
     @classmethod
     def verify_user(cls,username,password):
         a_user="" 
-        for user in User.user_list: # for loop that loop into the user_list and and return a user when it finds.
+        for user in User.user_list: # for loop that loop into the user_list and  return a user when it finds.
             if(user.username == username and user.password == password):
                 a_user == user.username
                 return a_user
@@ -81,6 +81,7 @@ class Details:
         """   
         password = string.ascii_uppercase + string.ascii_lowercase
         return ''.join(random.choice(password) for i in range(1,9))
+
 
 
    
