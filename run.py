@@ -69,7 +69,7 @@ def main():
     short_code=input("").lower().strip()
     if short_code == 'nw':
         print("Register")
-        print('#' * 50)
+        print('*' * 50)
         print("Username")
         username = input()
         print("password")
@@ -88,7 +88,14 @@ def main():
         save_user(create_user(username,password)) # create and save new contact.
         print ('\n')
         print(f"Hello, {username} you have successfully created an account,Your password is {password}")
-        print ('\n')        
+        print ('\n')
+    elif short_code == "lg":
+        print("*"*20)
+        print("Enter your User name and your Password to log in:")
+        print('*' * 20)
+        username = input("User name: ")
+        password = input("password: ")
+        login = login_user(username,password)        
 
 if __name__=='__main__':
     main()
