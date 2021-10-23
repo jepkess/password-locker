@@ -26,7 +26,7 @@ class Testuser(unittest.TestCase):
         test case for checking if the new instances of the user object is save.
 
         """ 
-        self.new_user.save_user() # saving the new contact
+        self.new_user.save_User() # saving the new contact
         self.assertEqual(len(User.user_list),1)
 class TestDetails(unittest.TestCase):
         """
@@ -52,8 +52,55 @@ class TestDetails(unittest.TestCase):
             self.assertEqual(self.new_details.username,"jep1234")
             self.assertEqual(self.new_details.password,"1234jep")
 
+        def test_save_details(self):
+         """
+         test case to test if the detail object is saved into the details list.
+        """
+         self.new_details.save_user_details()
+         self.assertEqual(len(Details.details_list),1)
 
-    
+        def save_multiple_details(self): 
+            """
+            test for the save of the multiple account
+            """
+            self.new_details.save_user_Details()
+            test_detail = Details("Ibrah","ibrah123","123ibrah")
+            test_detail.save_User_Details()
+            self.assertEqual(len(Details.details_list),2)
+        def test_find_detail(self):
+         """
+        test to check if we can find a detail.
+        """
+        
+         self.new_details.save_user_details()
+         test_details = Details('Ibrah','ibrah123','123ibrah')
+         test_details.save_user_details()
+
+         the_detail = Details.find_by_number("ibrah123")
+         self.assertEqual(the_detail.account,test_details.account)
+
+        def test_detail_exist(self):
+         """
+        test to check if we can find the detail.
+        """
+         self.new_details.save_user_details()
+         test_details = Details('Ibrah','ibrah123','123ibrah')
+         test_details.save_user_details()
+        
+         find_detail = Details.details_exist("ibrah123")
+         self.assertTrue(find_detail)
+#method that test if we can remove an account detail.
+        def test_delete_detail(self):
+         """
+        test method to test if we can remove an account details
+        """
+         self.new_details.save_User_Details()
+         test_details = Details('Ibrah','ibrah123','123ibrah')
+         test_details.save_user_details()
+        
+        
+         self.new_details.delete_details()
+         self.assertEqual(len(Details.details_list),1)
 
 if __name__ == "__main__":
     unittest.main()        
