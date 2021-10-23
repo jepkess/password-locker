@@ -75,7 +75,7 @@ def main():
         print("password")
         password = ""
         while True:
-            print(" TP - Type your own pasword?\n GP - Generate a new Password")
+            print(" WP - write your own pasword?\n CP - create  new Password")
             pass_choice = input().lower().strip()
             if pass_choice == 'tp':
                 print("\n")
@@ -85,6 +85,10 @@ def main():
                 password = generate_password(password)
             else:
                 print("Invalid password")
+        save_user(create_user(username,password)) # create and save new contact.
+        print ('\n')
+        print(f"New Contact {username} {password} created")
+        print ('\n')        
 
 if __name__=='__main__':
     main()
