@@ -2,85 +2,94 @@ import random
 import string
 class User:
     """
-    class that generates new instances of a user
+    Class that generates instance of a user,list of users and their passwords
     """
-    User_list=[] # Empty user list
-    def __init__(self,username,password): # init method allows us to  create a new instances of a class
-        User.username=username
-        User.password=password
-    def save_User(self):
+    user_list=[]
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
+
+    def save_user(self):
         """
-        method that saves the user to the list
-        """   
-        User.user_list(self).append(self)
-    def delete_User(self):
+        save_user is a method that saves the user to the user_list
         """
-        a method that delete saved user from the list
-        """   
-        User.user_list.remove(self) 
+        User.user_list.append(self)
+
+    def delete_user(self):
+        '''
+        delete_user method deletes a saved user from user_list
+        '''
+        User.user_list.remove(self)
 
     @classmethod
     def display_user(cls):
         """
-        method that displays the user in the users list
-        """ 
+        a method that display a list of users
+        """
         return cls.user_list
 
 class Details:
-    """
-    class that generates an instance of an account details  and list of details
-    """
-    Details_list=[]
-    def __init__(self, account,username,password):
-        self.account = account
-        self.username = username
-        self.password = password
-    @classmethod
-    def verify_user(cls,username,password):
-        a_user="" 
-        for user in User.user_list: # for loop that loop into the user_list and  return a user when it finds.
+     """
+        a class that generates an istance of an account credentials and a list of credentials
+
+     """
+     details_list = []
+     def __init__(self,account,username,password):
+         self.account = account
+         self.username = username
+         self.password = password
+
+     @classmethod
+     def verify_user(cls,username,password):
+        a_user = ""
+        for user in User.user_list:
             if(user.username == username and user.password == password):
                 a_user == user.username
                 return a_user
 
-    def save_User_Details(self):
+     def save_user_details(self):
         """
-        a method that saves the user details to the details list.
+        save_user_credential method saves a new user object to credentials list
         """
         Details.details_list.append(self)
 
-    def delete_details(self):
+     def delete_details(self):
         """
-        method that details the details in the details list
-        """  
+        delete saved credentials in the credentials list
+        """
         Details.details_list.remove(self)
 
-    @classmethod
-    def find_by_number(cls, account):
-        """
-        a method that find account number and return the password that matches with the number
-        """  
 
-        for details in Details.details_listcls.credentials_list:
-            if(details.account_number == account):
-                return details 
+     @classmethod
+     def find_by_number(cls,account):
+        '''
+        this method takes in account number and returns a password that match that number 
+        Args:
+        account: password number to search for
+        Returns :
+        password of person that matches the number.
+        '''
+        for detail in cls.details_list:
+            if(detail.account == account):
+                return detail
 
-    @classmethod
-    def details_exists(cls,account):
-        """
-        this method checks whether the details in the details list exists and return 
-        a boolean.
-        """
+     @classmethod
+     def details_exist(cls,account):
+        '''
+        this method checks whether the user details exists from the user list
+        it returns a boolean value
+        '''
         for detail in cls.details_list:
             if detail.account == account:
                 return True
         return False
-    def generates_password(self):
+     def generate_password(self):
         """
-        method that generates random password of mix letters and numbers
-        """   
+        generate random password consisting of letters
+        """
         password = string.ascii_uppercase + string.ascii_lowercase
         return ''.join(random.choice(password) for i in range(1,9))
+
 
 
 
