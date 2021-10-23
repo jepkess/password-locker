@@ -95,7 +95,37 @@ def main():
         print('*' * 20)
         username = input("User name: ")
         password = input("password: ")
-        login = login_user(username,password)        
+        login = login_user(username,password) 
+    if login_user ==login:
+        print(f"Hello,{username} ,Welcome to the passwordlocker App") 
+        print("\n") 
+    while True:
+        print("To proceed select any:\n CD - Create a new detail  \n VD - View a detail \n GP - Generate a random password \n DEL - Delete detail \n EX - Exit the application \n")    
+        short_code = input().lower().strip()
+        if short_code == "cd":
+            print("Create New Details")
+            print("*"*20)
+            print("Account name ....")
+            account = input().lower()
+            print("Your Account username")
+            username = input()
+        while True:
+                print(" TP - Type your own pasword if you already have an account:\n GP - Generate a random Password")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Your Own Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_password(password)
+                    break
+                else:
+                    print("Invalid password please try again")
+                save_details(create_new_detail(account,username,password))
+                print('\n')
+                print(f"Account Details for:Account {account} :Username: {username} - Password:{password} was successfully created.")
+                print('\n')   
+
+
 
 if __name__=='__main__':
     main()
