@@ -64,3 +64,32 @@ def generate_password(self):
     auto_password = Details.generate_password(self)
     return auto_password
 
+def main():
+    print("Hello, welcome to password-locker.\n To proceed please enter the following short codes\n nw....create new account\n lg....Already have an account\n")
+    short_code=input("").lower().strip()
+    if short_code == 'nw':
+        print("Register")
+        print('#' * 50)
+        print("Username")
+        username = input()
+        print("password")
+        password = ""
+        while True:
+            print(" TP - Type your own pasword?\n GP - Generate a new Password")
+            pass_choice = input().lower().strip()
+            if pass_choice == 'tp':
+                print("\n")
+                password = input("Enter Password\n")
+                break
+            elif pass_choice == 'gp':
+                password = generate_password(password)
+            else:
+                print("Invalid password")
+
+if __name__=='__main__':
+    main()
+
+
+
+
+         
