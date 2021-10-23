@@ -135,7 +135,20 @@ def main():
                 print('*' * 40)
             else:
                 print("That Detail searched there does not exist")
-                print('\n')  
+                print('\n') 
+        elif short_code == "del":
+            print("Enter account name of the Details you want to delete")
+            search_name = input().lower()
+            if find_detail(search_name):
+                search_detail = find_detail(search_name)
+               
+                search_detail.delete_details()
+                print('\n')
+                print(f"The details for : {search_detail.account} has been deleted!!!")
+                print('\n')
+            else:
+                print("The Credential you want to delete does not exist") 
+                    
 
 
 
