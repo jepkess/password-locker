@@ -87,7 +87,7 @@ def main():
                 print("Invalid password")
         save_user(create_user(username,password)) # create and save new contact.
         print ('\n')
-        print(f"Hello, {username} you have successfully created an account,Your password is {password}")
+        print(f"Hello, {username} you have successfully created an account,your password is {password}")
         print ('\n')
     elif short_code == "lg":
         print("*"*20)
