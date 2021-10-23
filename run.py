@@ -39,4 +39,28 @@ def save_details(details):
     """
     function that saves the created details
     """
-    details.save_user_details()   
+    details.save_user_details()  
+
+def delete_details(details):
+    """
+    a function that deletes the created details
+    """
+    details.delete_user_details 
+    
+def find_detail(account):
+    """
+    Function that finds a details by an account name 
+    """
+    return Details.find_by_number(account) 
+def check_details(account):
+    """
+    a function that checks if the details of the searched name exist and return a true or false value.
+    """
+    return Details.details_exist(account) 
+def generate_password(self):
+    """
+    a function that generates password randomly
+    """
+    auto_password = Details.generate_password(self)
+    return auto_password
+
