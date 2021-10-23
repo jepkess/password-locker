@@ -109,7 +109,7 @@ def main():
             account = input().lower()
             print("Your Account username")
             username = input()
-        while True:
+            while True:
                 print(" TP - Type your own pasword if you already have an account:\n GP - Generate a random Password")
                 password_Choice = input().lower().strip()
                 if password_Choice == 'tp':
@@ -123,7 +123,19 @@ def main():
                 save_details(create_new_detail(account,username,password))
                 print('\n')
                 print(f"Account Details for:Account {account} :Username: {username} - Password:{password} was successfully created.")
-                print('\n')   
+                print('\n')
+        elif short_code == "vd":
+            print("Enter the Account Name you want to view")
+            search_name = input().lower()
+            if find_detail(search_name):
+                search_detail = find_detail(search_name)
+                print(f"Name : {search_detail.username}")
+                print('*' * 40)
+                print(f"User Name: {search_detail.username} Password :{search_detail.password}")
+                print('*' * 40)
+            else:
+                print("That Detail searched there does not exist")
+                print('\n')  
 
 
 
