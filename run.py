@@ -148,6 +148,10 @@ def main():
                 print('\n')
             else:
                 print("The Credential you want to delete does not exist") 
+        elif short_code == 'gp':
+
+            password = generate_password(password)
+            print(f" {password} used")        
                     
 
 
