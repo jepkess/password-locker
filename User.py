@@ -30,7 +30,7 @@ class User:
 
 class Details:
      """
-        a class that generates an istance of an account credentials and a list of credentials
+        a class that generates an istance of an account details and a list of details
 
      """
      details_list = []
@@ -49,13 +49,13 @@ class Details:
 
      def save_user_details(self):
         """
-        save_user_credential method saves a new user object to credentials list
+        save_user_detail method saves a new user object to details list
         """
         Details.details_list.append(self)
 
      def delete_details(self):
         """
-        delete saved credentials in the credentials list
+        delete saved dtails in the details list
         """
         Details.details_list.remove(self)
 
@@ -73,7 +73,7 @@ class Details:
             if(detail.account == account):
                 return detail
 
-     @classmethod
+     @classmethod   
      def details_exist(cls,account):
         '''
         this method checks whether the user details exists from the user list
