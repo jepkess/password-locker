@@ -2,9 +2,9 @@
 from User import User,Details
 def create_new_user(username,password):
     """
-    function that creates a user using a password and username
+    function that creates a user using a password, confirming password and username
     """
-    new_user = User(username,password) 
+    new_user = User(username,password, confirm password) 
     return new_user
 
 def save_user(user):
